@@ -1,0 +1,181 @@
+@import "../../styles/color-pallete.scss";
+
+.login-title {
+  position: absolute;
+  top: 10%;
+}
+
+.login {
+  width: 90vw;
+
+  color: $color-text-primary;
+
+  & input {
+    width: 98%;
+    height: 3em;
+
+    margin-top: 0.5em;
+    margin-bottom: 1.5em;
+    padding-left: 2%;
+
+    border: none;
+    border-radius: 0.5em;
+    outline: none;
+
+    font-weight: 600;
+
+    &::placeholder {
+      font-size: 0.8em;
+    }
+  }
+
+  & button {
+    width: 70%;
+    height: 3em;
+
+    border: none;
+    border-radius: 0.5em;
+    outline: none;
+
+    font-weight: 600;
+    text-transform: uppercase;
+
+    background: $color-primary;
+    color: $color-text-primary;
+
+    cursor: pointer;
+  }
+}
+
+.login-error {
+  width: 90vw;
+
+  color: $color-text-primary;
+
+  & input {
+    width: 98%;
+    height: 3em;
+
+    margin-top: 0.5em;
+    margin-bottom: 1.5em;
+    padding-left: 2%;
+
+    border: none;
+    border-radius: 0.5em;
+    outline: none;
+
+    font-weight: 600;
+
+    border: 1px solid red;
+    color: red;
+
+    &::placeholder {
+      font-size: 0.8em;
+    }
+  }
+
+  & button {
+    width: 70%;
+    height: 3em;
+
+    border: none;
+    border-radius: 0.5em;
+    outline: none;
+
+    font-weight: 600;
+    text-transform: uppercase;
+
+    background: $color-primary;
+    color: $color-text-primary;
+
+    cursor: pointer;
+  }
+}
+
+.login-social {
+  width: 90vw;
+
+  margin-top: -13%;
+
+  display: flex;
+  justify-content: flex-end;
+
+  & img {
+    width: 12%;
+
+    margin-right: 1vw;
+
+    cursor: pointer;
+  }
+}
+
+.link-reminder {
+  position: absolute;
+  bottom: 2%;
+
+  font-size: 0.8em;
+
+  color: $color-text-primary;
+
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .login-title {
+    top: 5%;
+  }
+
+  .login,
+  .login-error {
+    width: 70vw;
+
+    & button {
+      width: 80%;
+    }
+  }
+
+  .login-social {
+    width: 70vw;
+
+    margin-top: -7.6%;
+
+    & img {
+      width: 7.5%;
+
+      margin-right: 1vw;
+    }
+  }
+
+  .link-reminder {
+    top: 75%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .login {
+    & button {
+      width: 85%;
+    }
+  }
+
+  .btn-login {
+    width: 85%;
+  }
+
+  .login-social {
+    width: 70vw;
+    margin-top: -4%;
+
+    & img {
+      width: 4%;
+
+      margin-right: 1vw;
+    }
+  }
+
+  .link-reminder {
+    top: 70%;
+
+    font-size: 1em;
+  }
+}
