@@ -44,10 +44,11 @@ class Dictionary extends Component {
     return list;
   };
 
-  getWord = async word => {
-    const response = await api.get(`/api/v1/word/${word}`);
+  getWord = async () => {
+    const { text } = this.state;
+    const response = await api.get(`/api/v1/word/${text}`);
 
-    return this.jsonByWordObject(response.data);
+    this.setState({ suggestions: this.jsonByWordObject(response.data) });
   };
 
   getDescriptionWord = async id => {
@@ -66,15 +67,11 @@ class Dictionary extends Component {
   onTextChanged = async e => {
     const value = e.target.value;
 
-    let suggestions = [];
-
-    if (value.length > 0) {
-      suggestions = await this.getWord(value);
-    } else {
-      this.setState({ suggestions: [] });
+    if (this.state.text.length > 0) {
+      this.getWord();
     }
 
-    this.setState(() => ({ suggestions, text: value }));
+    this.setState({ text: value });
   };
 
   suggestionSelected = item => {
