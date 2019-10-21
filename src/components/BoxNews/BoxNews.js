@@ -21,7 +21,13 @@ class BoxNews extends Component {
   onLoadNews = async () => {
     const { news } = this.props;
 
-    await axios.get(news.urlToImage).then(result => {
+    await axios.get(news.urlToImage, {
+      header: {
+        'Access-Control-Allow-Origin': '*',
+        "Access-Control-Allow-Credentials": 'true',
+        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
+        "Access-Control-Allow-Headers": 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json'
+    }}).then(result => {
       if (result.status === 200) {
         this.setState({
           image: result.request.responseURL
