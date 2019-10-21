@@ -67,14 +67,13 @@ class Indexes extends Component {
 
     return (
       <>
-        <div className="indexes-title">
-          <h1>Índices</h1>
-        </div>
-
         {loading ? (
           <h1>Carregando...</h1>
         ) : (
           <>
+            <div className="indexes-title">
+              <h1>Índices</h1>
+            </div>
             <div className="currencies-box">
               <BoxCurrency
                 title={currenciesTitle[1]}
