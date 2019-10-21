@@ -13,12 +13,10 @@ class ProfileData extends Component {
       name: "",
       lastName: "",
       birth: "",
-      email: "",
 
       newName: "",
       newLastName: "",
       newBirth: "",
-      newEmail: "",
 
       loading: true
     };
@@ -40,8 +38,7 @@ class ProfileData extends Component {
         id: response.data.id,
         name: response.data.FirstName,
         lastName: response.data.LastName,
-        birth: response.data.birth,
-        email: response.data.email
+        birth: response.data.birth
       });
     }
 
@@ -66,18 +63,14 @@ class ProfileData extends Component {
     this.setState(() => ({ newBirth: value }));
   };
 
-  onEmailChanged = async e => {
-    const value = e.target.value;
-
-    this.setState(() => ({ newEmail: value }));
-  };
-
   onUpdateSubmit = () => {
-    const { newBirth, newEmail, newLastName, newName } = this.state;
+    const { id, newBirth, newLastName, newName } = this.state;
+
+    console.log(id + " " + newName);
 
     const response = api.put("api/v1/protected/update", {
+      id: id,
       date_birth: newBirth,
-      email: newEmail,
       first_name: newName,
       last_name: newLastName
     });
@@ -95,51 +88,51 @@ class ProfileData extends Component {
     let monthNumber = 0;
 
     switch (newBirth[0]) {
-      case "jan":
+      case "Jan":
         monthNumber = 1;
         break;
 
-      case "feb":
+      case "Feb":
         monthNumber = 2;
         break;
 
-      case "mar":
+      case "Mar":
         monthNumber = 3;
         break;
 
-      case "apr":
+      case "Apr":
         monthNumber = 4;
         break;
 
-      case "may":
+      case "May":
         monthNumber = 5;
         break;
 
-      case "jun":
+      case "Jun":
         monthNumber = 6;
         break;
 
-      case "jul":
+      case "Jul":
         monthNumber = 7;
         break;
 
-      case "aug":
+      case "Aug":
         monthNumber = 8;
         break;
 
-      case "sep":
+      case "Sep":
         monthNumber = 9;
         break;
 
-      case "oct":
+      case "Oct":
         monthNumber = 10;
         break;
 
-      case "nov":
+      case "Nov":
         monthNumber = 11;
         break;
 
-      case "dec":
+      case "Dec":
         monthNumber = 12;
         break;
 
@@ -162,7 +155,7 @@ class ProfileData extends Component {
   };
 
   render() {
-    const { name, lastName, birth, email, loading } = this.state;
+    const { name, lastName, birth, loading } = this.state;
 
     return (
       <>
@@ -191,15 +184,6 @@ class ProfileData extends Component {
                   type="date"
                   onChange={this.onBirthChanged}
                   defaultValue={birth}
-                />
-              </div>
-
-              <h2>E-mail</h2>
-              <div className="data-credentials">
-                <input
-                  type="email"
-                  onChange={this.onEmailChanged}
-                  defaultValue={email}
                 />
               </div>
 
