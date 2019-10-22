@@ -28,7 +28,7 @@ class PinnedNews extends Component {
   getPinnedNews = async () => {
     const response = await api.get("/api/v1/news/Brazil/0");
 
-    this.setState({ pinned: response.data.data[5] });
+    this.setState({ pinned: response.data.data[0] });
   };
 
   setStyle = async () => {

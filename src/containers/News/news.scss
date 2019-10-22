@@ -56,8 +56,16 @@ h1 {
 }
 
 @media screen and (min-width: 425px) {
+  .news-title {
+    top: 20%;
+  }
+
+  .news-paginator {
+    top: 32%;
+  }
+
   .news-container {
-    margin-top: 40%;
+    margin-top: 45%;
   }
 }
 
@@ -86,14 +94,13 @@ h1 {
   }
 
   .news-container {
-    width: 90%;
+    width: 80%;
 
-    margin-top: 15%;
+    margin-top: -25%;
 
-    display: grid;
-    grid-template-rows: auto auto;
-    grid-template-columns: repeat(3, auto);
-    grid-template-areas: "box" "box" "box";
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
   }
 }
 
@@ -104,14 +111,9 @@ h1 {
   }
 
   .news-container {
-    width: 90%;
+    width: 80%;
 
-    margin-top: 8%;
-
-    display: grid;
-    grid-template-rows: auto auto;
-    grid-template-columns: repeat(3, auto);
-    grid-template-areas: "box" "box" "box";
+    margin-top: -20%;
   }
 }
 
