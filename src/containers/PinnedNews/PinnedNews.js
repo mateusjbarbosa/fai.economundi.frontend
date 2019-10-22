@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
-import vgd from 'vgd';
 
 import api from "../../services/api";
 
@@ -32,12 +31,8 @@ class PinnedNews extends Component {
     this.setState({ pinned: response.data.data[5] });
   };
 
-  setStyle = () => {
+  setStyle = async () => {
     const { pinned } = this.state;
-
-    vgd.shorten('http://google.com', function(res) {
-      console.log(res); //Returns a shorter version of http://google.com - http://v.gd/ddwyMm
-    });
 
     let style = {
       backgroundImage: `url(${pinned.urlToImage})`,
