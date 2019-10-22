@@ -8,11 +8,13 @@ import {
   Login,
   Profile,
   ProfileData,
+  PinnedNews,
   Register
 } from "../containers";
 
 const Routes = () => (
   <Switch>
+    <Route exact path='/' component={PinnedNews} />
     <Route path="/noticias" component={News} />
     <Route path="/dicionario" component={Dictionary} />
     <Route path="/indices" component={Indexes} />

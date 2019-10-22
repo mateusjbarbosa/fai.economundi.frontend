@@ -5,6 +5,7 @@ import Login from "./Login/Login";
 import News from "./News/News";
 import Profile from "./Profile/Profile";
 import ProfileData from "./ProfileData/ProfileData";
+import PinnedNews from './PinnedNews/PinnedNews'
 import Register from "./Register/Register";
 
 export {
@@ -15,5 +16,6 @@ export {
   News,
   Profile,
   ProfileData,
+  PinnedNews,
   Register
 };
