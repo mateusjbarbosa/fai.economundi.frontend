@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import vgd from 'vgd';
 
 import api from "../../services/api";
 
 import "./pinnedNews.scss";
 
 import LogoIcon from "../../img/logo-icon.png";
-import PinnedNewsImageDefault from "../../img/image-news-default.png";
 
 class PinnedNews extends Component {
   constructor(props) {
@@ -30,13 +29,15 @@ class PinnedNews extends Component {
   getPinnedNews = async () => {
     const response = await api.get("/api/v1/news/Brazil/0");
 
-    this.setState({ pinned: response.data.data[0] });
-
-    this.onLoadPicture();
+    this.setState({ pinned: response.data.data[5] });
   };
 
   setStyle = () => {
     const { pinned } = this.state;
+
+    vgd.shorten('http://google.com', function(res) {
+      console.log(res); //Returns a shorter version of http://google.com - http://v.gd/ddwyMm
+    });
 
     let style = {
       backgroundImage: `url(${pinned.urlToImage})`,
@@ -47,18 +48,6 @@ class PinnedNews extends Component {
     }
 
     this.setState({ style }, this.setState({ loading: false }));
-  }
-
-  onLoadPicture = async () => {
-    const { pinned } = this.state;
-    
-    await axios.get(pinned.urlToImage).catch(
-      this.setState( prevState => ({
-      pinned: {
-        ...prevState.pinned,
-        urlToImage: PinnedNewsImageDefault
-      }
-    })));
   }
 
   render() {
