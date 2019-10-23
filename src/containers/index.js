@@ -7,6 +7,7 @@ import News from "./News/News";
 import Profile from "./Profile/Profile";
 import ProfileData from "./ProfileData/ProfileData";
 import PinnedNews from "./PinnedNews/PinnedNews";
+import Recovery from "./Recovery/Recovery";
 import Register from "./Register/Register";
 
 export {
@@ -19,5 +20,6 @@ export {
   Profile,
   ProfileData,
   PinnedNews,
+  Recovery,
   Register
 };

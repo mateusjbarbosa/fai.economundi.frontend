@@ -38,7 +38,11 @@ class ProfileData extends Component {
         id: response.data.id,
         name: response.data.FirstName,
         lastName: response.data.LastName,
-        birth: response.data.birth
+        birth: response.data.birth,
+
+        newBirth: response.data.birth,
+        newLastName: response.data.LastName,
+        newName: response.data.FirstName
       });
     }
 
@@ -66,14 +70,16 @@ class ProfileData extends Component {
   onUpdateSubmit = () => {
     const { id, newBirth, newLastName, newName } = this.state;
 
-    console.log(id + " " + newName);
-
-    const response = api.put("api/v1/public/update", {
-      id: id,
+    const body = {
+      id: id.toString(),
       date_birth: newBirth,
       first_name: newName,
       last_name: newLastName
-    });
+    };
+
+    console.log(body);
+
+    const response = api.put("api/v1/public/update", { body });
 
     console.log(response);
   };
@@ -151,7 +157,7 @@ class ProfileData extends Component {
       "-" +
       (dayNumber < 10 ? "0" + dayNumber.toString() : dayNumber);
 
-    this.setState({ birth: birthSave, loading: false });
+    this.setState({ newBirth: birthSave, loading: false });
   };
 
   render() {

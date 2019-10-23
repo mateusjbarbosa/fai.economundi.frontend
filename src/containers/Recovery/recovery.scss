@@ -1,0 +1,39 @@
+@import "../../styles/color-pallete.scss";
+
+.recovery-title {
+  position: absolute;
+  top: 10%;
+}
+
+.recovery-container {
+  width: 80vw;
+
+  margin-top: 15%;
+  padding: 5%;
+
+  border-radius: 1em;
+
+  background: $color-component-primary;
+
+  & input {
+    width: 90%;
+
+    margin-top: 10%;
+    padding: 5%;
+
+    border: none;
+    border-radius: 0.5em;
+
+    background: silver;
+
+    &::placeholder {
+      font-size: 0.9em;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .recovery-container {
+    width: 50vw;
+  }
+}

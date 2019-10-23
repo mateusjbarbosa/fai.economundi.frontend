@@ -10,6 +10,7 @@ import {
   Profile,
   ProfileData,
   PinnedNews,
+  Recovery,
   Register
 } from "../containers";
 
@@ -24,6 +25,7 @@ const Routes = () => (
     <Route path="/perfil/login" component={Login} />
     <Route path="/perfil/cadastrar" component={Register} />
     <Route path="/perfil/dados" component={ProfileData} />
+    <Route path="/recovery" component={Recovery} />
   </Switch>
 );
 
