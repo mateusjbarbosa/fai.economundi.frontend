@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 
-import NewsImageDefault from "../../img/image-news-default.png";
-
 import "./boxNews.scss";
 
 class BoxNews extends Component {
@@ -25,8 +23,8 @@ class BoxNews extends Component {
       height: "100%",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
-    }
+      backgroundSize: "cover"
+    };
 
     this.setState({ style });
   };
