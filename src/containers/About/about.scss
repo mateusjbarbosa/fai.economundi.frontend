@@ -1,0 +1,48 @@
+.scope {
+  & p {
+    padding-left: 5%;
+    padding-right: 5%;
+
+    margin-top: -5%;
+
+    font-size: 0.9em;
+    text-align: justify;
+    color: white;
+  }
+}
+
+.developers {
+  & h2 {
+    font-size: 0.95em;
+    color: white;
+    margin-bottom: 10%;
+  }
+
+  & p {
+    font-size: 0.9em;
+    text-align: center;
+    color: white;
+    margin-top: 2%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .scope {
+    & p {
+      font-size: 1.2em;
+    }
+  }
+
+  .developers {
+    & h2 {
+      font-size: 1.5em;
+    }
+
+    & p {
+      font-size: 1.2em;
+      text-align: center;
+      color: white;
+      margin-top: 2%;
+    }
+  }
+}
