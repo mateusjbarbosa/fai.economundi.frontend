@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 
 import FacebookIcon from "../../img/facebook-icon.png";
 import GoogleIcon from "../../img/google-icon.png";
@@ -148,9 +149,9 @@ class Login extends Component {
               <div></div>
             )}
 
-            <a href="/login" className="link-reminder">
+            <Link to='/recovery' className="link-reminder">
               Esqueceu a senha? Relaxa, recupere-a aqui!
-            </a>
+            </Link>
           </>
         )}
       </>

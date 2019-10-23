@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+import axios from 'axios';
 
 import api from "../../services/api";
 
@@ -11,8 +11,10 @@ class Recovery extends Component {
 
     this.state = {
       token: "",
+      email: "",
       newPass: "",
-      loading: true
+
+      existsToken: false
     };
   }
 
@@ -22,9 +24,25 @@ class Recovery extends Component {
     this.setState({ token });
   }
 
+  onEmail = e => {
+    this.setState({ email: e.target.value });
+  };
+
   onNewPass = e => {
     this.setState({ newPass: e.target.value });
   };
+
+  onSend = async () => {
+    const { email } = this.state;
+
+    let response = "";
+
+    if(email != null) {
+      response = await axios.get(`http://economundi-frontend.herokuapp.com/api/v1/public/recovery/findByEmail/${email}`);
+    }
+
+    console.log(response);
+  }
 
   onRecovery = async () => {
     const response = await api.post(
@@ -35,13 +53,13 @@ class Recovery extends Component {
   };
 
   render() {
+    const { existsToken } = this.state;
     return (
       <>
         <div className="recovery-title">
           <h1>Redefinir senha</h1>
         </div>
-
-        <div className="recovery-container">
+        {existsToken ? <div className="recovery-container">
           <h2>Insira sua nova senha</h2>
           <input
             type="password"
@@ -49,7 +67,15 @@ class Recovery extends Component {
             onChange={this.onNewPass}
           />
           <button onClick={this.onRecovery}>Redefinir!</button>
-        </div>
+        </div> : <div className="recovery-container">
+          <h2>Insira seu e-mail</h2>
+          <input
+            type="email"
+            placeholder="Lembre-se: você deve estar cadastrado"
+            onChange={this.onEmail}
+          />
+          <button onClick={this.onSend}>Enviar solicitação</button>
+        </div>}
       </>
     );
   }
