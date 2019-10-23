@@ -70,16 +70,10 @@ class ProfileData extends Component {
   onUpdateSubmit = () => {
     const { id, newBirth, newLastName, newName } = this.state;
 
-    const body = {
-      id: id.toString(),
+    const response = api.put("api/v1/public/update", { id: id,
       date_birth: newBirth,
       first_name: newName,
-      last_name: newLastName
-    };
-
-    console.log(body);
-
-    const response = api.put("api/v1/public/update", { body });
+      last_name: newLastName });
 
     console.log(response);
   };
