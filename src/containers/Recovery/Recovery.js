@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 
 import api from "../../services/api";
 
@@ -24,6 +23,18 @@ class Recovery extends Component {
 
   onNewPass = e => {
     this.setState({ newPass: e.target.value });
+  };
+
+  onSend = async () => {
+    const { email } = this.state;
+
+    let response = "";
+
+    if (email != null) {
+      response = await api.get(`api/v1/public/recovery/findByEmail/${email}`);
+    }
+
+    console.log(response);
   };
 
   onRecovery = async () => {

@@ -11,7 +11,8 @@ import {
   ProfileData,
   PinnedNews,
   Recovery,
-  Register
+  Register,
+  Simulation
 } from "../containers";
 
 const Routes = () => (
@@ -20,6 +21,7 @@ const Routes = () => (
     <Route path="/noticias" component={News} />
     <Route path="/dicionario" component={Dictionary} />
     <Route path="/indices" component={Indexes} />
+    <Route path="/simulacoes" component={Simulation} />
     <Route path="/sobre" component={About} />
     <Route exact path="/perfil" component={Profile} />
     <Route path="/perfil/login" component={Login} />

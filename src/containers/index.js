@@ -9,6 +9,7 @@ import ProfileData from "./ProfileData/ProfileData";
 import PinnedNews from "./PinnedNews/PinnedNews";
 import Recovery from "./Recovery/Recovery";
 import Register from "./Register/Register";
+import Simulation from "./Simulation/Simulation";
 
 export {
   App,
@@ -21,5 +22,6 @@ export {
   ProfileData,
   PinnedNews,
   Recovery,
-  Register
+  Register,
+  Simulation
 };

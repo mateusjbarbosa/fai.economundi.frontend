@@ -1,9 +1,67 @@
-@import "../../styles/variables.scss";
+@import "../../styles/color-pallete.scss";
 
-.econo-group-investment-box {
-  padding: 1%;
+.sim-title {
+  position: absolute;
+  top: 10%;
+}
 
-  margin-top: 7vh;
+.investment-box {
+  width: 80vw;
 
-  background: sienna;
+  padding: 5%;
+
+  border-radius: 1em;
+
+  background: $color-component-primary;
+
+  &-input {
+    width: 90%;
+
+    // margin-top: 10%;
+    padding: 5%;
+
+    border: none;
+    border-radius: 0.5em;
+
+    background: silver;
+
+    font-weight: 600;
+
+    &::placeholder {
+      font-size: 0.85em;
+    }
+  }
+
+  & button {
+    width: 100%;
+
+    margin-top: 10%;
+    padding: 5%;
+
+    border: none;
+    border-radius: 0.5em;
+
+    background: $color-primary;
+
+    color: $color-text-primary;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  & select {
+    width: 100%;
+
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+    padding: 5%;
+
+    border-radius: 0.5em;
+
+    border: none;
+
+    font-weight: 600;
+
+    background: silver;
+  }
 }
