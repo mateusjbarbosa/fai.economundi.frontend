@@ -32,7 +32,9 @@ class PinnedNews extends Component {
   };
 
   setStyle = async () => {
-    const { pinned } = this.state;
+    let { pinned } = this.state;
+
+    pinned.urlToImage = pinned.urlToImage.replace("filters:cover():strip_icc()/", "");
 
     let style = {
       backgroundImage: `url(${pinned.urlToImage})`,

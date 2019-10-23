@@ -15,8 +15,24 @@ class BoxNews extends Component {
     this.onLoadNews();
   }
 
+  copyObject = obj => {
+    if (obj === null || typeof obj !== "object") {
+      return obj;
+    }
+
+    let temp = obj.constructor();
+
+    for (let key in obj) {
+      temp[key] = this.copyObject(obj[key]);
+    }
+
+    return temp;
+  };
+
   onLoadNews = async () => {
-    const { news } = this.props;
+    let { news } = this.props;
+
+    news.urlToImage = news.urlToImage.replace("filters:cover():strip_icc()/", "");
 
     let style = {
       backgroundImage: `url(${news.urlToImage})`,
