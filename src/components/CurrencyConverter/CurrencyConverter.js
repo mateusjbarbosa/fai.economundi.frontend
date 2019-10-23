@@ -127,11 +127,12 @@ class CurrencyConverter extends Component {
     return (
       <div className="box-converter">
         <h2>Conversor</h2>
-
+        
         <input
           type="number"
           placeholder="Insira uma quantia em dinheiro"
           onChange={this.onChangedValue}
+          className="box-converter-input-brl"
         />
         <select onChange={this.onCurrencySelected}>
           <option>Selecione uma moeda</option>
@@ -141,7 +142,7 @@ class CurrencyConverter extends Component {
             </option>
           ))}
         </select>
-        <input type="number" readOnly value={this.state.convertedValue} />
+        <input type="number" readOnly value={this.state.convertedValue} className="box-converter-input-converter"/>
       </div>
     );
   }
