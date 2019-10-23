@@ -157,7 +157,7 @@ class ProfileData extends Component {
       "-" +
       (dayNumber < 10 ? "0" + dayNumber.toString() : dayNumber);
 
-    this.setState({ newBirth: birthSave, loading: false });
+    this.setState({ birth: birthSave, loading: false });
   };
 
   render() {
