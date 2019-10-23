@@ -1,7 +1,7 @@
 {
   "name": "economundi-v3",
   "version": "0.1.0",
-  "homepage": "https://economundi-frontend.heroku-app.com/",
+  "homepage": "https://economundi-frontend.herokuapp.com/",
   "proxy": "https://economundi-api.herokuapp.com/",
   "private": true,
   "dependencies": {
