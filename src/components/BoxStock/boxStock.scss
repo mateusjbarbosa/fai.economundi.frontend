@@ -86,32 +86,43 @@
 @media screen and (min-width: 768px) {
   .box-stock {
     width: 70%;
+
+    padding-top: 1.1%;
+
     margin-left: 2.5%;
     margin-right: 2.5%;
+
+    & h2 {
+      font-size: 1em;
+    }
   }
 
   .variation-stock-positive,
   .variation-stock-negative {
-    margin-top: 30%;
+    margin-top: 35%;
   }
 
   .variation-stock-info-positive,
   .variation-stock-info-negative {
-    margin-top: 30%;
+    margin-top: 35%;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .box-stock {
     margin-top: -4%;
-    height: 27vh;
+    height: 29vh;
+
+    & h2 {
+      font-size: 1.5em;
+    }
   }
 
   .variation-stock-positive,
   .variation-stock-negative,
   .variation-stock-info-positive,
   .variation-stock-info-negative {
-    margin-top: 9%;
+    margin-top: 20%;
 
     width: 86%;
     padding: 2%;

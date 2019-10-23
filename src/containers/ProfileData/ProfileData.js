@@ -68,7 +68,7 @@ class ProfileData extends Component {
 
     console.log(id + " " + newName);
 
-    const response = api.put("api/v1/protected/update", {
+    const response = api.put("api/v1/public/update", {
       id: id,
       date_birth: newBirth,
       first_name: newName,

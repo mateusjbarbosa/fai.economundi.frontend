@@ -5,6 +5,7 @@ import BoxNews from "./BoxNews/BoxNews";
 import BoxText from "./BoxText/BoxText";
 import BoxStock from "./BoxStock/BoxStock";
 import BoxStocksList from "./BoxStocksList/BoxStocksList";
+import CurrencyConverter from "./CurrencyConverter/CurrencyConverter";
 import Menu from "./Menu/Menu";
 
 export {
@@ -15,5 +16,6 @@ export {
   BoxText,
   BoxStock,
   BoxStocksList,
+  CurrencyConverter,
   Menu
 };

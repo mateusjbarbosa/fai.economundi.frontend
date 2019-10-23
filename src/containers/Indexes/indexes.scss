@@ -13,11 +13,19 @@
   width: 90vw;
 }
 
+.converter {
+  width: 90vw;
+}
+
 @media screen and (min-width: 768px) {
   .currencies-box,
   .stocks-box {
     display: flex;
 
     width: 90vw;
+  }
+
+  .converter {
+    margin-right: 2.5%;
   }
 }

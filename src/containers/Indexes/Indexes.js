@@ -4,7 +4,8 @@ import {
   BoxCurrency,
   BoxCurrenciesList,
   BoxStock,
-  BoxStocksList
+  BoxStocksList,
+  CurrencyConverter
 } from "../../components";
 
 import api from "../../services/api";
@@ -92,6 +93,10 @@ class Indexes extends Component {
                 stock={marketShares[marketSharesTitle[0]]}
               />
               <BoxStocksList stocks={marketSharesList} />
+
+              <div className="converter">
+                <CurrencyConverter currencies={currencies} />
+              </div>
             </div>
           </>
         )}
