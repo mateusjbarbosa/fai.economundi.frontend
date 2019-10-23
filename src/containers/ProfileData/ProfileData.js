@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 import api from "../../services/api";
 
@@ -45,18 +45,21 @@ class ProfileData extends Component {
     let birth = "";
 
     if (response.status === 200) {
-      this.setState({
-        id: response.data.id,
-        name: response.data.FirstName,
-        lastName: response.data.LastName,
+      this.setState(
+        {
+          id: response.data.id,
+          name: response.data.FirstName,
+          lastName: response.data.LastName,
 
-        newLastName: response.data.LastName,
-        newName: response.data.FirstName
-      }, () => {
-        birth = response.data.birth;
-        birth = this.alterBirthFormat(birth);
-        this.setState({ birth, newBirth: birth });
-      });
+          newLastName: response.data.LastName,
+          newName: response.data.FirstName
+        },
+        () => {
+          birth = response.data.birth;
+          birth = this.alterBirthFormat(birth);
+          this.setState({ birth, newBirth: birth });
+        }
+      );
     }
   };
 
@@ -83,7 +86,7 @@ class ProfileData extends Component {
 
     this.setState({ loading: true });
 
-    const response = await axios.put("http:/economundi-frontend.herokuapp.com/api/v1/public/update", {
+    const response = await api.put("api/v1/public/update", {
       id: id,
       date_birth: newBirth,
       first_name: newName,
@@ -184,9 +187,7 @@ class ProfileData extends Component {
       case update.OK:
         return (
           <div className="pop-up-green">
-            <h2>
-              Dados enviados com sucesso!
-            </h2>
+            <h2>Dados enviados com sucesso!</h2>
           </div>
         );
 

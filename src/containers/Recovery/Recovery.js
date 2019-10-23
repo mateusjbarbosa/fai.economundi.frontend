@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 import api from "../../services/api";
 
@@ -37,12 +37,12 @@ class Recovery extends Component {
 
     let response = "";
 
-    if(email != null) {
-      response = await axios.get(`http://economundi-frontend.herokuapp.com/api/v1/public/recovery/findByEmail/${email}`);
+    if (email != null) {
+      response = await axios.get(`api/v1/public/recovery/findByEmail/${email}`);
     }
 
     console.log(response);
-  }
+  };
 
   onRecovery = async () => {
     const response = await api.post(
@@ -59,23 +59,27 @@ class Recovery extends Component {
         <div className="recovery-title">
           <h1>Redefinir senha</h1>
         </div>
-        {existsToken ? <div className="recovery-container">
-          <h2>Insira sua nova senha</h2>
-          <input
-            type="password"
-            placeholder="Lembre-se: pelo menos 8 caracteres!"
-            onChange={this.onNewPass}
-          />
-          <button onClick={this.onRecovery}>Redefinir!</button>
-        </div> : <div className="recovery-container">
-          <h2>Insira seu e-mail</h2>
-          <input
-            type="email"
-            placeholder="Lembre-se: você deve estar cadastrado"
-            onChange={this.onEmail}
-          />
-          <button onClick={this.onSend}>Enviar solicitação</button>
-        </div>}
+        {existsToken ? (
+          <div className="recovery-container">
+            <h2>Insira sua nova senha</h2>
+            <input
+              type="password"
+              placeholder="Lembre-se: pelo menos 8 caracteres!"
+              onChange={this.onNewPass}
+            />
+            <button onClick={this.onRecovery}>Redefinir!</button>
+          </div>
+        ) : (
+          <div className="recovery-container">
+            <h2>Insira seu e-mail</h2>
+            <input
+              type="email"
+              placeholder="Lembre-se: você deve estar cadastrado"
+              onChange={this.onEmail}
+            />
+            <button onClick={this.onSend}>Enviar solicitação</button>
+          </div>
+        )}
       </>
     );
   }
