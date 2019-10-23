@@ -16,7 +16,7 @@ const About = () => {
           descobrir qual investimento se adequa a sua personalidade. Para os
           usuários que já têm uma certa familiaridade, EconoMundi também
           possibilita que esse possa simular investimentos. O portal exibe
-          índice das bolsas, câmbio e possui uma calculadora de câmbio.
+          índice das bolsas, ações e câmbio.
         </p>
       </div>
 
