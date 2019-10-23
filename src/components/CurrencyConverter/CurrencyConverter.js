@@ -74,7 +74,14 @@ class CurrencyConverter extends Component {
   };
 
   onCurrencySelected = async e => {
-    this.setState({ currencySelected: e.target.value }, () =>
+    let value = this.state.value;
+    const str = "R$ ";
+
+    if (!value.includes(str)) {
+      value = "R$ " + value;
+    }
+
+    this.setState({ value: value, currencySelected: e.target.value }, () =>
       this.calculateConversion()
     );
   };
@@ -85,21 +92,52 @@ class CurrencyConverter extends Component {
     const { value, currencySelected } = this.state;
 
     let response = 0;
+    let strResponse = "";
+    let reValue = value.replace("R$ ", "");
     let currency = this.onRevertTranslate(currencySelected);
     let rate = {};
 
-    listKeys.map(key => {
-      if (key === currency) {
-        rate = this.copyObject(currencies[key]);
+    if (currencySelected !== "Selecione uma moeda") {
+      listKeys.map(key => {
+        if (key === currency) {
+          rate = this.copyObject(currencies[key]);
+        }
+      });
+
+      rate.buy = rate.buy.replace("$", "");
+      rate.buy = rate.buy.replace(",", "");
+
+      response = reValue / rate.buy;
+
+      switch (currency) {
+        case "Bitcoin":
+          strResponse = "₿ " + response.toFixed(10);
+          break;
+
+        case "Dollar":
+          strResponse = "$ " + response.toFixed(2);
+          break;
+
+        case "Euro":
+          strResponse = "€ " + response.toFixed(2);
+          break;
+
+        case "Pound Sterling":
+          strResponse = "£ " + response.toFixed(2);
+          break;
+
+        case "Argentine Peso":
+          strResponse = "$ " + response.toFixed(2);
+          break;
+
+        default:
+          break;
       }
-    });
 
-    rate.buy = rate.buy.replace("$", "");
-    rate.buy = rate.buy.replace(",", "");
-
-    response = value * rate.buy;
-
-    this.setState({ convertedValue: response.toFixed(2) });
+      this.setState({ convertedValue: strResponse });
+    } else {
+      this.setState({ convertedValue: 0 });
+    }
   };
 
   copyObject = obj => {
@@ -129,9 +167,10 @@ class CurrencyConverter extends Component {
         <h2>Conversor</h2>
 
         <input
-          type="number"
-          placeholder="Insira uma quantia em dinheiro"
+          type="text"
+          placeholder="Insira uma quantia em reais"
           onChange={this.onChangedValue}
+          value={this.state.value}
         />
         <select onChange={this.onCurrencySelected}>
           <option>Selecione uma moeda</option>
@@ -141,7 +180,7 @@ class CurrencyConverter extends Component {
             </option>
           ))}
         </select>
-        <input type="number" readOnly value={this.state.convertedValue} />
+        <input type="text" readOnly value={this.state.convertedValue} />
       </div>
     );
   }
