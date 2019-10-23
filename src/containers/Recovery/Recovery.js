@@ -17,7 +17,9 @@ class Recovery extends Component {
   }
 
   componentDidMount() {
-    this.setState({ token: this.props.location.search });
+    let token = this.props.location.search.replace("?", "");
+
+    this.setState({ token });
   }
 
   onNewPass = e => {
