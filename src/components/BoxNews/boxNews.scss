@@ -4,8 +4,6 @@
 .box-news {
   position: relative;
 
-  // padding-bottom: 10%;
-
   height: 40vh;
 
   border-radius: 0.5em;
@@ -76,9 +74,9 @@
 
 @media screen and (min-width: 768px) {
   .box-news {
-    width: 25%;
+    width: 30%;
     
-    padding: 3%;
+    height: 35vh;
 
     &:last-child {
       margin-bottom: 0;
@@ -112,9 +110,9 @@
 
 @media screen and (min-width: 1024px) {
   .box-news {
-    width: 25%;
+    // width: 25%;
     
-    padding: 2.5%;
+    height: 35vh;
 
     &:last-child {
       margin-bottom: 0;
