@@ -36,7 +36,6 @@ class BoxNews extends Component {
 
     let style = {
       backgroundImage: `url(${news.urlToImage})`,
-      height: "100%",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover"

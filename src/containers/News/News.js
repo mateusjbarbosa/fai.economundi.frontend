@@ -259,9 +259,16 @@ class News extends Component {
               )}
             </div>
             <div className="news-container">
-              {listKeys.map(key => (
+              {/* {listKeys.map(key => (
                 <BoxNews key={key} news={listNews[key]} />
-              ))}
+              ))} */}
+
+              <BoxNews key={listKeys[0]} news={listNews[listKeys[0]]} />
+              <BoxNews key={listKeys[1]} news={listNews[listKeys[1]]} />
+              <BoxNews key={listKeys[2]} news={listNews[listKeys[2]]} />
+              <BoxNews key={listKeys[3]} news={listNews[listKeys[3]]} />
+              <BoxNews key={listKeys[4]} news={listNews[listKeys[4]]} />
+              <BoxNews key={listKeys[5]} news={listNews[listKeys[5]]} />
             </div>
           </>
         )}
