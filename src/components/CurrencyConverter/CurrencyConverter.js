@@ -77,13 +77,15 @@ class CurrencyConverter extends Component {
     let value = this.state.value;
     const str = "R$ ";
 
-    if (!value.includes(str)) {
-      value = "R$ " + value;
-    }
+    if (value !== 0) {
+      if (!value.includes(str)) {
+        value = "R$ " + value;
+      }
 
-    this.setState({ value: value, currencySelected: e.target.value }, () =>
-      this.calculateConversion()
-    );
+      this.setState({ value: value, currencySelected: e.target.value }, () =>
+        this.calculateConversion()
+      );
+    }
   };
 
   calculateConversion = () => {
